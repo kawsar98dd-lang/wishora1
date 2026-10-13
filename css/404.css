@@ -1,0 +1,148 @@
+/* =========================================================
+   WISHORA — 404 PAGE
+   css/404.css
+   Builds on css/style.css (tokens, .brand, .btn). Works without
+   JavaScript. Linked with root-absolute paths because the host serves
+   404.html at any URL depth.
+   ========================================================= */
+
+.error-body {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.error-header {
+  padding: 20px 24px;
+}
+
+.error-main {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px 56px;
+  overflow: hidden;
+}
+
+/* Soft glows echo the homepage hero. Decorative only. */
+.error-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.error-glow-a {
+  width: 340px;
+  height: 340px;
+  top: -80px;
+  right: -60px;
+  background: rgba(139, 92, 246, 0.28);
+}
+
+.error-glow-b {
+  width: 300px;
+  height: 300px;
+  bottom: -90px;
+  left: -70px;
+  background: rgba(236, 72, 153, 0.22);
+}
+
+.error-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  padding: 44px 28px 36px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.error-code {
+  font-family: var(--font-en);
+  font-size: clamp(4.5rem, 20vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 18px;
+}
+
+.error-title {
+  font-size: clamp(1.35rem, 5vw, 1.8rem);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.error-title span {
+  display: block;
+}
+
+.error-title-en {
+  margin-top: 4px;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--color-text-soft);
+}
+
+.error-text {
+  color: var(--color-text-soft);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.error-text span {
+  display: block;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.error-actions .btn {
+  white-space: normal;
+  gap: 6px;
+}
+
+.error-extra {
+  margin-top: 22px;
+  font-size: 0.92rem;
+}
+
+.error-extra a {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.error-footer {
+  padding: 18px 20px 26px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--color-text-soft);
+}
+
+@media (min-width: 640px) {
+  .error-card {
+    padding: 56px 48px 44px;
+  }
+}

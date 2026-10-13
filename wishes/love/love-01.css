@@ -1,0 +1,41 @@
+/* WISHORA — Love experience "A Love Letter": night sky, wax seal, stars, paper letter.
+   Themes (html.theme-<id>) only change custom properties. */
+:root,html.theme-rose{--bg:#2A0A18;--bg2:#4A0D26;--ink:#FFF1F5;--soft:#F9C6D6;--accent:#FFD1DC;--accent-ink:#4A0D26;--card:#5C1431;--card-ink:#FFF1F5;--line:#B05577;--focus:#FFE08A;--star:#FFE08A}
+html.theme-midnight{--bg:#0B0C2E;--bg2:#1E1B4B;--ink:#F5F3FF;--soft:#C7D2FE;--accent:#FBBF24;--accent-ink:#1E1B4B;--card:#26235F;--card-ink:#F5F3FF;--line:#7C83D9;--focus:#FDE68A;--star:#FDE68A}
+html.theme-blush{--bg:#FFF1F2;--bg2:#FFE4E8;--ink:#4C0519;--soft:#7F1D3A;--accent:#BE185D;--accent-ink:#FFFFFF;--card:#FFFFFF;--card-ink:#4C0519;--line:#D68AA6;--focus:#9D174D;--star:#D97706}
+body{background:linear-gradient(180deg,var(--bg2),var(--bg) 70%) fixed;background-color:var(--bg)}
+.sky{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1;background:
+ radial-gradient(1.5px 1.5px at 12% 20%,var(--soft),transparent),radial-gradient(1.5px 1.5px at 78% 12%,var(--soft),transparent),
+ radial-gradient(2px 2px at 60% 38%,var(--soft),transparent),radial-gradient(1.5px 1.5px at 30% 62%,var(--soft),transparent),
+ radial-gradient(1.5px 1.5px at 88% 70%,var(--soft),transparent),radial-gradient(2px 2px at 8% 85%,var(--soft),transparent);opacity:.7}
+.drift{position:absolute;bottom:-40px;color:var(--accent);opacity:.35;font-size:20px;animation:rise 14s linear infinite}
+.d1{left:8%}.d2{left:28%;animation-delay:-4s;font-size:14px}.d3{left:52%;animation-delay:-8s}.d4{left:72%;animation-delay:-2s;font-size:16px}.d5{left:90%;animation-delay:-10s;font-size:12px}
+@keyframes rise{to{transform:translateY(-115vh) rotate(18deg)}}
+.hint{color:var(--soft);font-size:.95rem}
+
+.seal{position:relative;width:132px;height:132px;border-radius:50%;border:0;background:radial-gradient(circle at 35% 30%,#E5484D,#B91C1C 55%,#7F1D1D);box-shadow:0 10px 30px rgba(0,0,0,.4),inset 0 -6px 12px rgba(0,0,0,.3);color:#FFE4E6;font-size:3rem;transition:transform .5s ease;animation:sealglow 2.4s ease-in-out infinite}
+.seal::after{content:"";position:absolute;inset:12px;border-radius:50%;border:2px dashed rgba(255,228,230,.55)}
+.seal.is-broken{animation:none;transform:scale(1.25) rotate(8deg);opacity:0;transition:transform .6s,opacity .6s}
+@keyframes beat{50%{transform:scale(1.06)}}
+@keyframes sealglow{50%{box-shadow:0 10px 30px rgba(0,0,0,.4),0 0 0 12px rgba(229,72,77,.28),inset 0 -6px 12px rgba(0,0,0,.3)}}
+
+.stars{display:flex;gap:18px;justify-content:center}
+.star{width:64px;height:64px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--soft);font-size:1.9rem;line-height:1;transition:transform .3s,box-shadow .3s,color .3s}
+.star[aria-pressed="true"]{color:var(--star);border-color:var(--star);box-shadow:0 0 22px var(--star);transform:scale(1.08)}
+html.theme-blush .star[aria-pressed="true"]{color:#B45309}
+.star-lines{list-style:none;margin:0;padding:0;display:grid;gap:10px;width:100%;min-height:3.2em}
+.star-lines li{background:var(--card);color:var(--card-ink);border:1px solid var(--line);border-radius:16px;padding:12px 16px;animation:sceneIn .6s ease both;overflow-wrap:anywhere}
+
+.paper{width:100%;background:#FFF8F0;color:#4A0D26;border-radius:6px 6px 18px 18px;padding:26px 22px;box-shadow:0 14px 34px rgba(0,0,0,.35);text-align:left;font-family:Georgia,'Noto Sans Bengali',serif;border-top:6px solid #B91C1C}
+body[data-lang="bn"] .paper{font-family:'Noto Sans Bengali',Georgia,serif}
+.dear{font-weight:700;margin-bottom:10px}
+.letter-text{font-size:1.08rem;line-height:1.85}
+.signed{margin-top:16px;text-align:right;font-style:italic}
+
+.heart-btn{width:96px;height:96px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:#FB7185;font-size:2.8rem;line-height:1}
+html.theme-blush .heart-btn{color:#BE185D}
+.heart-btn[aria-pressed="true"]{animation:beat 1.2s ease-in-out 3;box-shadow:0 0 28px #FB7185}
+.final-line{min-height:3.4em;max-width:30ch;overflow-wrap:anywhere}
+.scene h1,.scene h2{font-family:Georgia,'Noto Sans Bengali',serif}
+body[data-lang="bn"] .scene h1,body[data-lang="bn"] .scene h2{font-family:'Noto Sans Bengali',Georgia,serif}
+@media (prefers-reduced-motion:reduce){.drift{display:none}.seal{animation:none}}

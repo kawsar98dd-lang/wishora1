@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">A Little Birthday Magic — Wishora</title>
+<meta id="metaDescription" name="description" content="A tiny, beautiful birthday experience made just for you. · একটি ছোট্ট, বিশেষ জন্মদিনের অভিজ্ঞতা — শুধু তোমার জন্য।">
+<meta name="theme-color" content="#8B5CF6">
+<!-- Canonical is the clean, parameter-free URL (Cloudflare Pages serves
+     .html files without the extension). Personalised links
+     (?name=…&from=…) all point back to this one canonical page. -->
+<link rel="canonical" href="https://SITE_URL_PLACEHOLDER/wishes/birthday/birthday-01">
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph -->
+<meta id="ogTitle" property="og:title" content="A Little Birthday Magic — Wishora">
+<meta id="ogDescription" property="og:description" content="A tiny, beautiful birthday experience made just for you. · একটি ছোট্ট, বিশেষ জন্মদিনের অভিজ্ঞতা — শুধু তোমার জন্য।">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://SITE_URL_PLACEHOLDER/wishes/birthday/birthday-01">
+<meta property="og:site_name" content="Wishora">
+<meta property="og:image" content="https://SITE_URL_PLACEHOLDER/assets/images/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wishora — beautiful digital wishes">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta id="twitterTitle" name="twitter:title" content="A Little Birthday Magic — Wishora">
+<meta id="twitterDescription" name="twitter:description" content="A tiny, beautiful birthday experience made just for you. · একটি ছোট্ট, বিশেষ জন্মদিনের অভিজ্ঞতা — শুধু তোমার জন্য।">
+<meta name="twitter:image" content="https://SITE_URL_PLACEHOLDER/assets/images/og-default.png">
+
+<!-- build:jsonld -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://SITE_URL_PLACEHOLDER/#website","url":"https://SITE_URL_PLACEHOLDER/","name":"Wishora","inLanguage":["bn","en"]},{"@type":"WebPage","@id":"https://SITE_URL_PLACEHOLDER/wishes/birthday/birthday-01#webpage","url":"https://SITE_URL_PLACEHOLDER/wishes/birthday/birthday-01","name":"Birthday Wishes","description":"Open the gift, blow out the candle and read the words kept for someone special.","isPartOf":{"@id":"https://SITE_URL_PLACEHOLDER/#website"},"inLanguage":["bn","en"],"breadcrumb":{"@id":"https://SITE_URL_PLACEHOLDER/wishes/birthday/birthday-01#breadcrumb"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://SITE_URL_PLACEHOLDER/"},{"@type":"ListItem","position":2,"name":"Birthday Wishes","item":"https://SITE_URL_PLACEHOLDER/categories/birthday/"},{"@type":"ListItem","position":3,"name":"Birthday Wishes","item":"https://SITE_URL_PLACEHOLDER/wishes/birthday/birthday-01"}],"@id":"https://SITE_URL_PLACEHOLDER/wishes/birthday/birthday-01#breadcrumb"}]}</script>
+<!-- /build:jsonld -->
+
+<!-- Fonts: loaded without blocking first paint (system fallback until ready) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap"></noscript>
+
+<link rel="stylesheet" href="./birthday-01.css">
+</head>
+<body data-lang="bn">
+
+<a href="#experience" class="skip-link" data-i18n="skipLink">মূল অভিজ্ঞতায় যান</a>
+
+<noscript>
+  <p class="noscript-note">This wish needs JavaScript to play. · এই শুভেচ্ছাটি চালাতে JavaScript প্রয়োজন।
+    <a href="../../">← Wishora</a></p>
+</noscript>
+
+<!-- ============ TOP BAR (language + back link) ============ -->
+<header class="topbar">
+  <a href="../../" class="topbar-back" data-i18n="backHome">← Wishora</a>
+
+  <button type="button" class="lang-toggle" id="langToggle" data-i18n-aria-label="langToggleLabel" aria-label="Change language" aria-pressed="false">
+    <span class="lang-option" data-lang="bn">বাং</span>
+    <span class="lang-divider" aria-hidden="true">/</span>
+    <span class="lang-option" data-lang="en">EN</span>
+  </button>
+</header>
+
+<!-- ============ PROGRESS DOTS ============ -->
+<div class="progress-dots" id="progressDots" aria-hidden="true">
+  <span class="dot" data-step="1"></span>
+  <span class="dot" data-step="2"></span>
+  <span class="dot" data-step="3"></span>
+  <span class="dot" data-step="4"></span>
+  <span class="dot" data-step="5"></span>
+  <span class="dot" data-step="6"></span>
+  <span class="dot" data-step="7"></span>
+  <span class="dot" data-step="8"></span>
+</div>
+
+<main id="experience">
+
+  <!-- ============ SECTION 01 — WELCOME ============ -->
+  <section class="scene scene-welcome is-active" id="scene-1" data-step="1" data-i18n-aria-label="sceneWelcome" aria-label="Welcome">
+    <div class="scene-bg" aria-hidden="true">
+      <span class="bg-glow bg-glow-a"></span>
+      <span class="bg-glow bg-glow-b"></span>
+      <span class="bg-star s1">✦</span>
+      <span class="bg-star s2">✧</span>
+      <span class="bg-star s3">✦</span>
+      <span class="bg-star s4">✧</span>
+    </div>
+
+    <div class="scene-inner">
+      <p class="eyebrow" data-i18n="welcomeEyebrow">তোমার জন্য ছোট্ট একটা বিশেষ সারপ্রাইজ আছে…</p>
+      <h1 class="scene-heading" data-i18n="welcomeHeading">যাওয়ার আগে… একটু সময় দাও।</h1>
+      <button type="button" class="btn btn-primary btn-large" id="openSurpriseBtn">
+        <span data-i18n="openSurprise">সারপ্রাইজটি খুলুন</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 02 — NAME REVEAL ============ -->
+  <section class="scene scene-reveal" id="scene-2" data-step="2" data-i18n-aria-label="sceneReveal" aria-label="Name reveal">
+    <div class="scene-bg" aria-hidden="true">
+      <span class="bg-glow bg-glow-a"></span>
+      <span class="bg-glow bg-glow-c"></span>
+    </div>
+
+    <div class="scene-inner">
+      <p class="reveal-lead" data-i18n="revealLead">আজকের দিনটা একজন দারুণ মানুষের জন্য।</p>
+      <h2 class="reveal-name">
+        <span class="reveal-name-prefix" data-i18n="happyBirthdayPrefix">শুভ জন্মদিন,</span>
+        <span class="reveal-name-value" id="recipientNameDisplay">প্রিয় মানুষ</span>
+        <span class="sparkle-ring" aria-hidden="true">
+          <span>✦</span><span>✧</span><span>✦</span>
+        </span>
+      </h2>
+      <p class="sender-line" id="senderLine" hidden></p>
+      <button type="button" class="btn btn-ghost next-btn" data-next="3">
+        <span data-i18n="continueBtn">চলো এগিয়ে যাই</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 03 — BIRTHDAY SURPRISE (GIFT) ============ -->
+  <section class="scene scene-gift" id="scene-3" data-step="3" data-i18n-aria-label="sceneGift" aria-label="Birthday surprise">
+    <div class="scene-inner">
+      <p class="eyebrow" data-i18n="giftEyebrow">অপেক্ষা করো…</p>
+      <h2 class="scene-subheading" data-i18n="giftHeading">তোমার জন্য একটা উপহার আছে।</h2>
+
+      <div class="gift-stage" id="giftStage">
+        <button type="button" class="gift-box" id="giftBox" data-i18n-aria-label="giftBoxLabel" aria-label="Open the gift">
+          <span class="gift-lid" aria-hidden="true"></span>
+          <span class="gift-base" aria-hidden="true"></span>
+          <span class="gift-ribbon-v" aria-hidden="true"></span>
+          <span class="gift-ribbon-h" aria-hidden="true"></span>
+          <span class="gift-bow" aria-hidden="true"></span>
+        </button>
+
+        <div class="gift-card" id="giftCard" hidden>
+          <span class="gift-card-heart" aria-hidden="true">♥</span>
+          <p class="gift-card-title" data-i18n="giftCardTitle">শুভ জন্মদিন!</p>
+          <p class="gift-card-sub" data-i18n="giftCardSub">এই ছোট্ট মুহূর্তটা তোমার জন্য।</p>
+        </div>
+
+        <div class="confetti-layer" id="confettiLayerGift" aria-hidden="true"></div>
+      </div>
+
+      <p class="gift-hint" id="giftHint" aria-live="polite" data-i18n="giftHint">উপহারটি খুলতে আলতো করে ট্যাপ করো।</p>
+
+      <button type="button" class="btn btn-ghost next-btn" id="afterGiftBtn" data-next="4" hidden>
+        <span data-i18n="continueBtn">চলো এগিয়ে যাই</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 04 — HEARTFELT MESSAGE ============ -->
+  <section class="scene scene-message" id="scene-4" data-step="4" data-i18n-aria-label="sceneMessage" aria-label="Heartfelt message">
+    <div class="scene-inner">
+      <p class="eyebrow" data-i18n="messageEyebrow">একটা ছোট্ট কথা…</p>
+      <p class="heartfelt-text" id="heartfeltText">
+        আজকের দিনটা শুধু ক্যালেন্ডারের একটা তারিখ নয়। আজ এমন একজন মানুষের দিন,
+        যার উপস্থিতি অনেক মুহূর্তকে আরও সুন্দর, আরও সহজ আর আরও উষ্ণ করে তোলে।
+      </p>
+      <button type="button" class="btn btn-ghost next-btn" data-next="5">
+        <span data-i18n="continueBtn">চলো এগিয়ে যাই</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 05 — PERSONAL WISHES ============ -->
+  <section class="scene scene-wishes" id="scene-5" data-step="5" data-i18n-aria-label="sceneWishes" aria-label="Personal wishes">
+    <div class="scene-inner">
+      <p class="eyebrow" data-i18n="wishesEyebrow">তোমার জন্য আমার কিছু ছোট্ট শুভকামনা…</p>
+
+      <ul class="wish-list" id="wishList">
+        <li class="wish-line" data-i18n="wish1">তোমার হাসিটা যেন আরও অনেক বছর এমনই সুন্দর থাকে।</li>
+        <li class="wish-line" data-i18n="wish2">তোমার প্রতিটি সকাল শুরু হোক নতুন আশা নিয়ে।</li>
+        <li class="wish-line" data-i18n="wish3">তোমার স্বপ্নগুলো একে একে সত্যি হয়ে উঠুক।</li>
+        <li class="wish-line" data-i18n="wish4">জীবনের সুন্দর মুহূর্তগুলো তুমি মন ভরে উপভোগ করতে পারো, এটাই কামনা।</li>
+      </ul>
+
+      <button type="button" class="btn btn-ghost next-btn" data-next="6">
+        <span data-i18n="continueBtn">চলো এগিয়ে যাই</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 06 — CELEBRATION (CANDLE) ============ -->
+  <section class="scene scene-celebration" id="scene-6" data-step="6" data-i18n-aria-label="sceneCelebration" aria-label="Celebration">
+    <div class="scene-inner">
+      <p class="eyebrow" data-i18n="celebrationEyebrow">এখন একটু উদযাপন করা যাক।</p>
+      <h2 class="scene-subheading" id="candlePrompt" aria-live="polite" data-i18n="candlePrompt">একটা ইচ্ছে করো…</h2>
+
+      <div class="cake-stage" id="cakeStage">
+        <div class="balloon b1" aria-hidden="true"></div>
+        <div class="balloon b2" aria-hidden="true"></div>
+        <div class="balloon b3" aria-hidden="true"></div>
+
+        <button type="button" class="candle-btn" id="candleBtn" data-i18n-aria-label="candleLabel" aria-label="Make a wish and blow the candle">
+          <span class="flame" id="flame" aria-hidden="true"></span>
+          <span class="candle-stick" aria-hidden="true"></span>
+        </button>
+
+        <div class="cake" aria-hidden="true">
+          <div class="cake-top"></div>
+          <div class="cake-layer cake-layer-1"></div>
+          <div class="cake-layer cake-layer-2"></div>
+          <div class="cake-plate"></div>
+        </div>
+
+        <div class="confetti-layer" id="confettiLayerCandle" aria-hidden="true"></div>
+      </div>
+
+      <p class="candle-message" id="candleMessage" hidden data-i18n="candleMessage">
+        তোমার সেই ছোট্ট ইচ্ছেটা যেন একদিন সত্যি হয়ে তোমার কাছে ফিরে আসে।
+      </p>
+
+      <button type="button" class="btn btn-ghost next-btn" id="afterCandleBtn" data-next="7" hidden>
+        <span data-i18n="continueBtn">চলো এগিয়ে যাই</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 07 — MUSIC ============ -->
+  <section class="scene scene-music" id="scene-7" data-step="7" data-i18n-aria-label="sceneMusic" aria-label="Music">
+    <div class="scene-inner">
+      <p class="eyebrow" data-i18n="musicEyebrow">শেষ একটা ছোট্ট জিনিস বাকি…</p>
+      <h2 class="scene-subheading" id="musicHeading" data-i18n="musicPlaying">তোমার জন্য বাজছে ছোট্ট একটা বিশেষ সুর…</h2>
+
+      <div class="music-player" id="musicPlayer">
+        <button type="button" class="music-play-btn" id="musicPlayBtn" data-i18n-aria-label="musicPlayLabel" aria-label="Play music">
+          <span class="icon-play" aria-hidden="true">▶</span>
+          <span class="icon-pause" aria-hidden="true" hidden>❚❚</span>
+        </button>
+
+        <div class="music-progress-wrap">
+          <div class="music-progress-track" id="musicProgressTrack" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0:00" data-i18n-aria-label="musicSeekLabel" aria-label="Seek">
+            <div class="music-progress-fill" id="musicProgressFill"></div>
+          </div>
+          <div class="music-time">
+            <span id="musicCurrentTime">0:00</span>
+            <span id="musicDuration">0:00</span>
+          </div>
+        </div>
+
+        <div class="music-volume-wrap">
+          <button type="button" class="music-mute-btn" id="musicMuteBtn" data-i18n-aria-label="musicMuteLabel" aria-label="Mute">
+            <span class="icon-sound" aria-hidden="true">♪</span>
+            <span class="icon-muted" aria-hidden="true" hidden>✕</span>
+          </button>
+          <input type="range" id="musicVolume" class="music-volume-slider" min="0" max="1" step="0.05" value="0.35" data-i18n-aria-label="musicVolumeLabel" aria-label="Volume">
+        </div>
+      </div>
+
+      <p class="music-tap-hint" id="musicTapHint" hidden data-i18n="musicTapHint">মিউজিক চালু করতে ট্যাপ করুন</p>
+      <p class="music-unavailable" id="musicUnavailable" hidden data-i18n="musicUnavailable">এই মুহূর্তে মিউজিক পাওয়া যাচ্ছে না, কিন্তু বাকি সারপ্রাইজটা ঠিকই আছে।</p>
+
+      <audio id="birthdayAudio" preload="none" loop></audio>
+
+      <button type="button" class="btn btn-ghost next-btn" data-next="8">
+        <span data-i18n="continueBtn">চলো এগিয়ে যাই</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 08 — FINAL MESSAGE ============ -->
+  <section class="scene scene-final" id="scene-8" data-step="8" data-i18n-aria-label="sceneFinal" aria-label="Final message">
+    <div class="scene-bg" aria-hidden="true">
+      <span class="bg-glow bg-glow-a"></span>
+      <span class="bg-glow bg-glow-b"></span>
+      <span class="bg-star s1">✦</span>
+      <span class="bg-star s2">✧</span>
+    </div>
+
+    <div class="scene-inner">
+      <p class="eyebrow" data-i18n="finalEyebrow">আরেকবার বলি…</p>
+      <h2 class="final-heading">
+        <span data-i18n="happyBirthdayPrefix">শুভ জন্মদিন,</span>
+        <span id="finalRecipientName">প্রিয় মানুষ</span>!
+      </h2>
+      <p class="final-text" data-i18n="finalWish">
+        তোমার আগামী দিনগুলো হোক সুন্দর, শান্তি আর অসংখ্য হাসিতে ভরা।
+      </p>
+      <p class="final-closing" data-i18n="finalClosing">আজকের দিনটা তোমার। মন খুলে উপভোগ করো। ❤️</p>
+
+      <div class="final-actions">
+        <button type="button" class="btn btn-ghost" id="replayBtn">
+          <span data-i18n="replayBtn">আবার দেখুন</span>
+        </button>
+        <button type="button" class="btn btn-primary" id="shareBtn">
+          <span data-i18n="shareBtn">এই শুভেচ্ছাটি শেয়ার করুন</span>
+        </button>
+      </div>
+
+      <!-- Internal links. Static so they work (and are crawlable) without JS.
+           There is no wish-creation tool yet, so no "create" CTA is shown;
+           see README → Known limitations. -->
+      <nav class="wish-links" data-i18n-aria-label="moreNavLabel" aria-label="More from Wishora">
+        <a href="../../" data-i18n="linkHome">Wishora হোম</a>
+        <a href="../../categories/birthday/" data-i18n="linkCategory">জন্মদিনের সংগ্রহ</a>
+        <a href="../../create/?category=birthday" data-i18n="linkCreate">নিজের শুভেচ্ছা তৈরি করুন</a>
+        <a href="../../#explore" data-i18n="linkExplore">আরও শুভেচ্ছা দেখুন</a>
+      </nav>
+
+      <!-- Filled from data/wishes.js → related[]; stays hidden while the
+           list is empty (only one wish exists today). -->
+      <div class="related-wishes" id="relatedWishes" hidden>
+        <p class="related-title" data-i18n="relatedTitle">আরও শুভেচ্ছা</p>
+        <ul class="related-list" id="relatedList"></ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../../config/site.js" defer></script>
+<script src="../../data/categories.js" defer></script>
+<script src="../../data/templates.js" defer></script>
+<script src="../../data/wishes.js" defer></script>
+<script src="../../js/wish-params.js" defer></script>
+<script src="./birthday-01.js" defer></script>
+</body>
+</html>

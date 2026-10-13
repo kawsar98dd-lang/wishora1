@@ -1,0 +1,41 @@
+/* WISHORA — Anniversary experience "The Memory Jar": warm paper, glass jar, memory cards, a quiet toast. */
+:root,html.theme-ivory{--bg:#FBF5E6;--bg2:#F4E8C8;--ink:#3B2A12;--soft:#6B4E1F;--accent:#92400E;--accent-ink:#FFFFFF;--card:#FFFFFF;--card-ink:#3B2A12;--line:#C9A25A;--focus:#7C2D12;--gold:#B7791F}
+html.theme-emerald{--bg:#0B3B2E;--bg2:#06281F;--ink:#F0FDF4;--soft:#BBF7D0;--accent:#D9A441;--accent-ink:#1F2A10;--card:#12503F;--card-ink:#F0FDF4;--line:#4FA583;--focus:#FDE68A;--gold:#D9A441}
+html.theme-twilight{--bg:#1E1B4B;--bg2:#15123A;--ink:#EEF2FF;--soft:#C7D2FE;--accent:#C7D2FE;--accent-ink:#1E1B4B;--card:#2C2A6E;--card-ink:#EEF2FF;--line:#7C83D9;--focus:#FDE68A;--gold:#E0E7FF}
+body{background:radial-gradient(120% 70% at 50% 0%,var(--bg2),var(--bg) 70%) fixed;background-color:var(--bg)}
+.scene h1,.scene h2{font-family:Georgia,'Noto Sans Bengali',serif}
+body[data-lang="bn"] .scene h1,body[data-lang="bn"] .scene h2{font-family:'Noto Sans Bengali',Georgia,serif}
+
+.ring{width:96px;height:96px;border-radius:50%;border:3px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-size:2rem;box-shadow:0 0 0 8px rgba(183,121,31,.12);animation:glow 3.2s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 14px rgba(183,121,31,.2)}}
+
+.jar{position:relative;width:150px;height:170px}
+.jar-lid{position:absolute;left:28px;right:28px;top:0;height:20px;border-radius:8px;background:var(--gold)}
+.jar-body{position:absolute;left:8px;right:8px;top:18px;bottom:0;border-radius:22px 22px 30px 30px;border:3px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.35),rgba(255,255,255,.05));overflow:hidden}
+.jar-body i{position:absolute;width:44px;height:26px;border-radius:4px;background:var(--gold);opacity:.8;box-shadow:0 2px 4px rgba(0,0,0,.2)}
+.jar-body i:nth-child(1){left:12px;bottom:10px;transform:rotate(-12deg)}
+.jar-body i:nth-child(2){left:56px;bottom:14px;transform:rotate(8deg);background:var(--accent)}
+.jar-body i:nth-child(3){left:30px;bottom:38px;transform:rotate(20deg);background:var(--line)}
+.jar-body i:nth-child(4){left:70px;bottom:44px;transform:rotate(-18deg);background:var(--accent)}
+.jar-body i:nth-child(5){left:42px;bottom:70px;transform:rotate(6deg)}
+
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:12px;width:100%;text-align:left}
+.cards li{background:var(--card);color:var(--card-ink);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:14px 16px;animation:sceneIn .6s ease both;overflow-wrap:anywhere}
+.cards .card-title{display:block;font-weight:700;margin-bottom:4px}
+
+.scroll{width:100%;background:#FFFDF6;color:#3B2A12;border:2px solid #C9A25A;border-radius:16px;padding:24px 20px;text-align:left;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.msg-for{font-weight:700;margin-bottom:8px}
+.msg-text{font-size:1.06rem;line-height:1.85}
+.signed{margin-top:14px;text-align:right;font-style:italic}
+
+.glass-btn{display:inline-flex;flex-direction:column;align-items:center;gap:6px;min-width:150px;min-height:96px;padding:14px 22px;border-radius:24px;border:2px solid var(--gold);background:var(--card);color:var(--card-ink);font-weight:700;font-size:1rem}
+.glass-btn>span:first-child{font-size:2.4rem;line-height:1}
+.glass-btn[aria-pressed="true"]{box-shadow:0 0 26px var(--gold)}
+.spark{position:relative;height:0}
+.spark i{position:absolute;left:50%;top:-40px;width:7px;height:7px;border-radius:50%;background:var(--gold);opacity:0}
+.is-toasted .spark i{animation:pop 1.4s ease-out both}
+.spark i:nth-child(1){--x:-70px}.spark i:nth-child(2){--x:-40px;animation-delay:.1s}.spark i:nth-child(3){--x:-10px;animation-delay:.05s}
+.spark i:nth-child(4){--x:20px;animation-delay:.15s}.spark i:nth-child(5){--x:50px;animation-delay:.08s}.spark i:nth-child(6){--x:80px;animation-delay:.12s}
+@keyframes pop{0%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(var(--x),-60px)}}
+.final-line{min-height:3.4em;max-width:32ch;font-size:1.15rem;overflow-wrap:anywhere}
+@media (prefers-reduced-motion:reduce){.ring{animation:none}.spark{display:none}}

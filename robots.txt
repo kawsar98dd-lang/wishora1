@@ -1,0 +1,9 @@
+# Wishora — robots.txt
+# Everything public is crawlable. The sitemap URL below uses the site
+# URL placeholder (SITE_URL_PLACEHOLDER); run `node scripts/set-site-url.mjs https://your-domain`
+# (or edit by hand) once the real domain is known. See README.md.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://SITE_URL_PLACEHOLDER/sitemap.xml
