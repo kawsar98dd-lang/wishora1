@@ -15,6 +15,9 @@
     <loc>https://SITE_URL_PLACEHOLDER/categories/love/</loc>
   </url>
   <url>
+    <loc>https://SITE_URL_PLACEHOLDER/categories/friendship/</loc>
+  </url>
+  <url>
     <loc>https://SITE_URL_PLACEHOLDER/categories/anniversary/</loc>
   </url>
   <url>
@@ -37,5 +40,8 @@
   </url>
   <url>
     <loc>https://SITE_URL_PLACEHOLDER/wishes/anniversary/anniversary-01</loc>
+  </url>
+  <url>
+    <loc>https://SITE_URL_PLACEHOLDER/wishes/friendship/friendship-01</loc>
   </url>
 </urlset>

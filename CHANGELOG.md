@@ -122,3 +122,23 @@ Wish Creator, AI, authentication, database, payments, advertisements, analytics 
 
 ### Not done (by design)
 Accounts, database, payments, AI, ads, analytics, backend, new wishes.
+
+
+## Phase 4 — Friendship Postcard
+
+- Implemented the Friendship Moments template as **The Friendship Postcard**, a distinct four-scene interactive experience with three revealable friendship moments, a personalised note and a high-five interaction.
+- Added three themes (Sunny, Ocean, Berry), Bengali/English strings, reduced-motion styling, keyboard-operable controls and shared safe URL/runtime handling.
+- Enabled Friendship in the Creator and moved it from planned to live data. Added its category landing page, SEO metadata, internal links, JSON-LD and sitemap entry through the existing build pipeline.
+- Added no backend, accounts, tracking, advertising or third-party runtime dependencies.
+- Bengali copy is a draft and still needs native-speaker review. Production domain and real Cloudflare deployment remain unverified.
+
+
+## Phase 5 — Category content and SEO polish
+
+- Added three practical, category-specific FAQs to each live category page (Birthday, Love, Anniversary and Friendship), with Bengali and English content.
+- Rendered FAQs as native `<details>/<summary>` controls for keyboard access and no-JavaScript operation.
+- Added matching FAQPage structured data using the English question-and-answer text, keeping visible content and metadata aligned.
+- Added responsive FAQ styling and a visible keyboard focus indicator.
+- Added `scripts/test-phase5.mjs`, a dependency-free regression check for category FAQ rendering, bilingual content, structured-data validity and responsive/focus styling.
+- No production domain, tracking, ads, backend, or external runtime dependencies were introduced.
+- Still requires human review of Bengali copy and real Cloudflare/device verification.

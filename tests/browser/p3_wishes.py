@@ -199,11 +199,11 @@ with sync_playwright() as p:
                 def redirect_request(self,*a,**k): return None
             op=ur.build_opener(NoRedir); r=op.open(B+path); return r.status
         except Exception as ex: return getattr(ex,"code",0)
-    check("routes: clean URLs 200",all(status(x)==200 for x in ["/wishes/love/love-01","/wishes/anniversary/anniversary-01","/categories/love/","/categories/anniversary/","/create/"]))
-    check("routes: .html redirects (308/301)",all(status(x) in (301,308) for x in ["/wishes/love/love-01.html","/wishes/anniversary/anniversary-01.html"]))
-    check("routes: planned Friendship has NO page (404) and no category page",status("/wishes/friendship/friendship-01")==404 and status("/categories/friendship/")==404)
+    check("routes: clean URLs 200",all(status(x)==200 for x in ["/wishes/love/love-01","/wishes/anniversary/anniversary-01","/categories/love/","/categories/anniversary/","/categories/friendship/","/wishes/friendship/friendship-01","/create/"]))
+    check("routes: .html redirects (308/301)",all(status(x) in (301,308) for x in ["/wishes/love/love-01.html","/wishes/anniversary/anniversary-01.html","/wishes/friendship/friendship-01.html"]))
+    check("routes: Friendship page and category are live",status("/wishes/friendship/friendship-01")==200 and status("/categories/friendship/")==200)
     sm=ur.urlopen(B+"/sitemap.xml").read().decode()
-    check("sitemap lists love/anniversary + their categories, not friendship",all(x in sm for x in ["/wishes/love/love-01","/wishes/anniversary/anniversary-01","/categories/love/","/categories/anniversary/"]) and "friendship" not in sm)
+    check("sitemap lists all live experiences and categories",all(x in sm for x in ["/wishes/love/love-01","/wishes/anniversary/anniversary-01","/wishes/friendship/friendship-01","/categories/love/","/categories/anniversary/","/categories/friendship/"]))
     import re
     locs=re.findall(r"<loc>([^<]*)</loc>",sm)
     check("sitemap has <loc> entries and none has a query string or fragment",len(locs)>=11 and not any(("?" in l or "#" in l) for l in locs),locs)

@@ -1,0 +1,16 @@
+/* WISHORA — Friendship Postcard: cheerful, non-romantic and distinct. */
+:root,html.theme-sunny{--bg:#FFF7D6;--bg2:#FDE68A;--ink:#243047;--soft:#475569;--accent:#1D4ED8;--accent-ink:#FFFFFF;--card:#FFFFFF;--card-ink:#243047;--line:#EAB308;--focus:#1D4ED8;--gold:#D97706}
+html.theme-ocean{--bg:#082F49;--bg2:#164E63;--ink:#ECFEFF;--soft:#BAE6FD;--accent:#5EEAD4;--accent-ink:#083344;--card:#164E63;--card-ink:#F0FDFA;--line:#67E8F9;--focus:#FDE68A;--gold:#5EEAD4}
+html.theme-berry{--bg:#500724;--bg2:#831843;--ink:#FFF1F2;--soft:#FBCFE8;--accent:#F9A8D4;--accent-ink:#500724;--card:#701A3D;--card-ink:#FFF1F2;--line:#F9A8D4;--focus:#FDE68A;--gold:#F9A8D4}
+body{background:radial-gradient(120% 70% at 50% 0%,var(--bg2),var(--bg) 72%) fixed;background-color:var(--bg)}
+.scene h1,.scene h2{font-family:Georgia,'Noto Sans Bengali',serif}body[data-lang="bn"] .scene h1,body[data-lang="bn"] .scene h2{font-family:'Noto Sans Bengali',Georgia,serif}
+.postmark{display:grid;place-items:center;width:100px;height:100px;border:3px dashed var(--gold);border-radius:50%;color:var(--gold);font-size:3rem;transform:rotate(-8deg);box-shadow:0 0 0 8px color-mix(in srgb,var(--gold) 14%,transparent);animation:postmarkFloat 3s ease-in-out infinite}
+@keyframes postmarkFloat{50%{transform:rotate(3deg) translateY(-4px)}}
+.moment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%;margin:10px 0 18px}
+.moment-card{min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px 10px;border:2px solid var(--line);border-radius:16px;background:var(--card);color:var(--card-ink);font:inherit;font-weight:700;line-height:1.45;cursor:pointer;overflow-wrap:anywhere}
+.moment-card>span:first-child{font-size:2rem}.moment-card[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.14)}
+.moment-status{min-height:1.6em;color:var(--soft);font-weight:600}.postcard{width:100%;padding:24px 20px;background:var(--card);color:var(--card-ink);border:2px solid var(--line);border-radius:8px 20px 8px 20px;box-shadow:8px 8px 0 color-mix(in srgb,var(--gold) 28%,transparent);text-align:left;overflow-wrap:anywhere}.dear{font-weight:700;margin-bottom:12px}.postcard .user-text{white-space:pre-wrap;line-height:1.85}.signed{margin-top:16px;text-align:right;font-style:italic}
+.highfive-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:180px;min-height:116px;padding:16px 24px;border:2px solid var(--line);border-radius:24px;background:var(--card);color:var(--card-ink);font:inherit;font-weight:700}.highfive-btn>span:first-child{font-size:2.6rem}.highfive-btn[aria-pressed="true"]{box-shadow:0 0 0 8px color-mix(in srgb,var(--gold) 24%,transparent);transform:rotate(-2deg)}
+.final-line{min-height:3em;max-width:34ch;font-size:1.1rem;overflow-wrap:anywhere}
+@media(max-width:520px){.moment-grid{grid-template-columns:1fr}.moment-card{min-height:76px;flex-direction:row;justify-content:flex-start;text-align:left;padding:14px 18px}.moment-card>span:first-child{width:36px;flex:0 0 36px}}
+@media(prefers-reduced-motion:reduce){.postmark{animation:none}.moment-card[aria-pressed="true"],.highfive-btn[aria-pressed="true"]{transform:none}}

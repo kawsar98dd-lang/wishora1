@@ -267,30 +267,48 @@
   });
 
   /* ---------------------------------------------------------
-     Friendship — PLANNED. Data only: no page, no route, not offered in
-     the Creator, not linked, not in the sitemap. When the experience
-     exists: add the page, a live entry in data/wishes.js, then change
-     status to "implemented", add `route`/`previewRoute`, set
-     creator.enabled and replace `fields`/`themes`/`defaults` below.
+     Friendship — "The Friendship Postcard"
+     A warm, non-romantic interactive note for a friend.
   --------------------------------------------------------- */
   data.templates.push({
     id: "friendship-moments",
     slug: "friendship-01",
-    status: "planned",
+    status: "implemented",
     category: "friendship",
-    title: { bn: "বন্ধুত্বের মুহূর্ত", en: "Friendship Moments" },
+    title: { bn: "বন্ধুত্বের পোস্টকার্ড", en: "The Friendship Postcard" },
     description: {
-      bn: "প্রিয় বন্ধুর জন্য আন্তরিক একটি শুভেচ্ছা। এখনো তৈরি হয়নি।",
-      en: "A heartfelt wish for a friend. Not built yet."
+      bn: "তিনটি বন্ধুত্বের মুহূর্ত খুলে দেখুন, তারপর বন্ধুর জন্য রাখা বার্তাটি পড়ুন।",
+      en: "Reveal three little friendship moments, then read a note made for your friend."
     },
+    kind: "scene-sequence",
+    scenes: 4,
     languages: ["bn", "en"],
-    creator: { enabled: false },
-    capabilities: ["name", "sender", "message", "theme", "language"],
+    route: "/wishes/friendship/friendship-01",
+    previewRoute: "/wishes/friendship/friendship-01",
+    creator: {
+      enabled: true,
+      style: { bn: "রোদেলা রং, পোস্টকার্ড আর বন্ধুত্বের ছোট্ট মুহূর্ত", en: "Sunny colours, a postcard and small moments of friendship" }
+    },
+    capabilities: ["name", "sender", "message", "theme", "language", "share", "replay", "reduced-motion"],
+    seo: {
+      title: { bn: "বন্ধুত্বের পোস্টকার্ড — বন্ধুর জন্য শুভেচ্ছা | Wishora", en: "The Friendship Postcard — a wish for a friend | Wishora" },
+      description: {
+        bn: "তিনটি বন্ধুত্বের মুহূর্ত খুলে দেখুন, নিজের বার্তা যোগ করুন এবং একটি লিংকে বন্ধুর সঙ্গে শেয়ার করুন।",
+        en: "Reveal three friendship moments, add your own message and share this interactive wish with a friend."
+      }
+    },
     fields: commonFields(null),
     themes: [
-      theme("sunny", "রোদেলা", "Sunny", "উজ্জ্বল হলুদ আর নীল।", "Bright yellow and blue.", "#B45309", "#60A5FA")
+      theme("sunny", "রোদেলা", "Sunny", "হলুদ আর আকাশি নীল, উজ্জ্বল ও প্রাণবন্ত।", "Sunshine yellow and sky blue, bright and cheerful.", "#B45309", "#60A5FA"),
+      theme("ocean", "সমুদ্র", "Ocean", "গভীর নীল আর মিন্ট, শান্ত বন্ধুত্বের রং।", "Deep blue and mint, calm and friendly.", "#075985", "#5EEAD4"),
+      theme("berry", "বেরি", "Berry", "বেরি আর গোলাপি, আনন্দময় ও উষ্ণ।", "Berry and pink, joyful and warm.", "#9D174D", "#F9A8D4")
     ],
     defaultTheme: "sunny",
-    defaults: { message: { bn: "", en: "" } }
+    defaults: {
+      message: {
+        bn: "সব সময় বড় কিছু করতে হয় না—কখনো পাশে থাকা, মন দিয়ে শোনা, কিংবা একসঙ্গে হাসাটাই অনেক। বন্ধু হওয়ার জন্য ধন্যবাদ।",
+        en: "It doesn't always take something big. Sometimes showing up, listening well, or laughing together is more than enough. Thanks for being my friend."
+      }
+    }
   });
 })();

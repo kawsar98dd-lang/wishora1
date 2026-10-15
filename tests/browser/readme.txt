@@ -1,6 +1,6 @@
 Wishora — browser test suites (Playwright for Python, headless Chromium)
 =======================================================================
-Scripts used during development. Phase 3 updated obsolete assertions (listed in CHANGELOG).
+Scripts used during development. Phase 4 updated live-template assertions for Friendship (see CHANGELOG).
 
 Run:  node scripts/serve.mjs 8803        (from the project root, keep it running)
       python3 tests/browser/<suite>.py   (needs: pip install playwright; playwright install chromium)
@@ -13,7 +13,8 @@ Run:  node scripts/serve.mjs 8803        (from the project root, keep it running
   p2_creator.py  Phase 2  Creator end-to-end (Bengali flow, validation, preview, share, copy, fresh context)
   p2_more.py     Phase 2  English flow, hostile URL params, XSS, deep links, keyboard, layout x steps, no-JS, contrast per theme
   p3_wishes.py   Phase 3  Love + Anniversary pages: params, XSS, limits, Unicode, themes, lang, keyboard, reduced motion, no-JS, 6 widths, contrast, routes, sitemap
-  p3_creator.py  Phase 3  Creator with the new templates: flow, preview == share URL, copy/share fallbacks, back/forward, deep links, planned safety
+  p4_friendship.py Phase 4 Friendship postcard interactions, URL safety, responsive checks, Creator + sitemap.
+  p3_creator.py  Phase 3/4 Creator with all live templates: flow, preview == share URL, copy/share fallbacks, back/forward, deep links, unknown-input safety
 
 Known caveats of these scripts (not changed on purpose):
   - (Resolved in Phase 3) p2_more.py now reads p1_a11y.py from its own folder; screenshots use a temp dir

@@ -15,11 +15,11 @@ with sync_playwright() as p:
     check("html lang bn + single h1", pg.get_attribute("html","lang")=="bn" and pg.locator("h1").count()==1)
     check("Phase 3: featured group = 1 wish (Birthday); 'more' group = the 2 newer live wishes", pg.locator("[data-group=featured] [data-wish]").count()==1 and pg.locator("[data-group=more] [data-wish]").count()==2)
     check("wish card → /wishes/birthday/birthday-01 (clean URL)", pg.get_attribute("[data-wish] a.wish-link","href")=="/wishes/birthday/birthday-01")
-    check("wish cards link to their own category + show languages", pg.eval_on_selector_all("[data-wish] a.wish-cat","e=>e.map(a=>a.getAttribute('href'))")==["/categories/birthday/","/categories/love/","/categories/anniversary/"] and pg.locator("[data-wish] .lang-chips li").count()==6)
-    check("categories: 17 cards = 3 live links (birthday, love, anniversary) + 14 coming soon", pg.locator(".cat-card").count()==17 and pg.locator(".cat-card.is-live").count()==3 and pg.locator(".cat-card.is-soon").count()==14)
+    check("wish cards link to their own category + show languages", pg.eval_on_selector_all("[data-wish] a.wish-cat","e=>e.map(a=>a.getAttribute('href'))")==["/categories/birthday/","/categories/love/","/categories/anniversary/","/categories/friendship/"] and pg.locator("[data-wish] .lang-chips li").count()==8)
+    check("categories: 17 cards = 4 live links + 13 coming soon", pg.locator(".cat-card").count()==17 and pg.locator(".cat-card.is-live").count()==4 and pg.locator(".cat-card.is-soon").count()==13)
     check("coming-soon categories contain NO links/buttons", pg.locator(".cat-card.is-soon a, .cat-card.is-soon button").count()==0)
     check("live category card links to /categories/birthday/ and shows '1 wish'", pg.get_attribute(".cat-card.is-live a.cat-link","href")=="/categories/birthday/" and "1টি শুভেচ্ছা" in txt(pg,".cat-card.is-live .cat-count"), txt(pg,".cat-card.is-live .cat-count"))
-    check("planned highlights = 7 non-link items (love/anniversary are live now)", pg.locator(".planned-list li").count()==7 and pg.locator(".planned-list a").count()==0)
+    check("planned highlights = 6 non-link items (live occasions are not duplicated)", pg.locator(".planned-list li").count()==6 and pg.locator(".planned-list a").count()==0)
     check("Create CTA is REAL: hero button → /create/, no Coming-soon tag, create band present", pg.get_attribute(".hero-actions .btn-ghost","href")=="/create/" and pg.locator(".hero-actions .soon-tag").count()==0 and pg.get_attribute(".create-band a.btn","href")=="/create/")
     check("status says 3 live wishes (real count, nothing fabricated)", "৩" in txt(pg,"#resultsStatus") or "3" in txt(pg,"#resultsStatus"), txt(pg,"#resultsStatus"))
     check("3 ad slots exist, hidden, empty", pg.locator("[data-ad-slot]").count()==3 and all(not v for v in pg.eval_on_selector_all("[data-ad-slot]","e=>e.map(x=>x.offsetParent!==null||x.getBoundingClientRect().height>0)")))
@@ -30,19 +30,19 @@ with sync_playwright() as p:
     def search(q):
         pg.fill("#searchInput",q); pg.wait_for_timeout(120)
         return pg.locator("[data-wish]:not([hidden])").count(), txt(pg,"#resultsStatus")
-    for q,exp in [("birthday",1),("Birthday",1),("জন্মদিন",1),("cake",1),("candle",1),("surprise",1),("gift candle",1),("happy bday",1),("bday",1),("friendship",0),("xyzzy",0)]:
+    for q,exp in [("birthday",1),("Birthday",1),("জন্মদিন",1),("cake",1),("candle",1),("surprise",1),("gift candle",1),("happy bday",1),("bday",1),("friendship",1),("xyzzy",0)]:
         n,st=search(q); check(f"search '{q}' → {exp}",n==exp,(n,st))
     n,st=search("birthday"); check("results line: 1 wish found (bn)", "পাওয়া গেছে" in st and "1" in st, st)
     check("URL synced ?search=birthday", "search=birthday" in pg.url, pg.url)
     check("clear button visible when text present", pg.locator("#searchClear").is_visible())
     pg.click("#searchClear"); pg.wait_for_timeout(100)
-    check("clear → empty input, card visible, idle status, focus back on input", pg.input_value("#searchInput")=="" and pg.locator("[data-wish]:not([hidden])").count()==3 and pg.evaluate("document.activeElement.id")=="searchInput" and "?" not in pg.url)
+    check("clear → empty input, card visible, idle status, focus back on input", pg.input_value("#searchInput")=="" and pg.locator("[data-wish]:not([hidden])").count()==4 and pg.evaluate("document.activeElement.id")=="searchInput" and "?" not in pg.url)
     n,st=search("love"); check("'love' → the live Love wish is found", n==1, (n,st))
     search("friendship")
-    check("'friendship' → no wish, empty state + 'Friendship' listed as coming soon (not a link)", pg.locator("#emptyState").is_visible() and "বন্ধুত্ব" in txt(pg,"#emptySoonNames") and pg.locator("#emptySoon a").count()==0, txt(pg,"#emptySoonNames"))
+    check("'friendship' → the live Friendship wish is found", pg.locator("[data-wish]:not([hidden])").count()==1 and "বন্ধুত্ব" in txt(pg,"[data-wish]:not([hidden])"))
     check("empty state hides group headings", pg.locator("[data-group]:visible").count()==0)
     pg.click("#clearAll"); pg.wait_for_timeout(100)
-    check("'Clear search and filters' restores", pg.locator("[data-wish]:not([hidden])").count()==3 and pg.locator("#emptyState").is_hidden())
+    check("'Clear search and filters' restores", pg.locator("[data-wish]:not([hidden])").count()==4 and pg.locator("#emptyState").is_hidden())
     # chips + combined with search
     pg.click("#chips [data-category=birthday]"); pg.wait_for_timeout(100)
     check("category chip → aria-pressed + URL ?category=birthday", pg.get_attribute("#chips [data-category=birthday]","aria-pressed")=="true" and "category=birthday" in pg.url and pg.get_attribute("#chips [data-category=all]","aria-pressed")=="false")
@@ -53,9 +53,9 @@ with sync_playwright() as p:
     check("EN: html lang, status in English", pg.get_attribute("html","lang")=="en" and "wish found" in txt(pg,"#resultsStatus"), txt(pg,"#resultsStatus"))
     check("EN: no Bengali strings visible in main content", pg.evaluate("[...document.querySelectorAll('[data-l=bn]')].filter(e=>e.offsetParent!==null).length")==0)
     check("EN: placeholder + aria-labels localized", pg.get_attribute("#searchInput","placeholder")=="Try “birthday”" and pg.get_attribute("#menuToggle","aria-label")=="Open menu" and pg.get_attribute("#langToggle","aria-label")=="Change language")
-    search("friendship"); check("EN: no-result soon list in English", "Friendship" in txt(pg,"#emptySoonNames"), txt(pg,"#emptySoonNames"))
+    search("friendship"); check("EN: Friendship wish is searchable", pg.locator("[data-wish]:not([hidden])").count()==1 and "Friendship" in txt(pg,"[data-wish]:not([hidden])"))
     # deep links
-    for url,exp_q,exp_cat in [("/?search=birthday",1,"all"),("/?category=birthday",1,"birthday"),("/?category=nope",3,"all"),("/?search=zzz&category=birthday",0,"birthday")]:
+    for url,exp_q,exp_cat in [("/?search=birthday",1,"all"),("/?category=birthday",1,"birthday"),("/?category=nope",4,"all"),("/?search=zzz&category=birthday",0,"birthday")]:
         pg.goto(B+url); pg.wait_for_timeout(250)
         n=pg.locator("[data-wish]:not([hidden])").count(); cat=[c.get_attribute("data-category") for c in pg.locator("#chips .chip").all() if c.get_attribute("aria-pressed")=="true"][0]
         check(f"deep link {url}", n==exp_q and cat==exp_cat, (n,cat))
@@ -94,7 +94,7 @@ with sync_playwright() as p:
     check("category: one h1 'জন্মদিনের শুভেচ্ছা'", cp.locator("h1").count()==1 and "জন্মদিনের শুভেচ্ছা" in txt(cp,"h1"))
     check("category: breadcrumb Home › current", cp.eval_on_selector_all(".breadcrumb li","e=>e.length")==2 and cp.get_attribute(".breadcrumb a","href")=="/" and cp.get_attribute(".breadcrumb [aria-current=page]","aria-current")=="page")
     check("category: wish card → real URL", cp.get_attribute("a.wish-link","href")=="/wishes/birthday/birthday-01")
-    check("category: related = live ones are links, planned ones are Coming Soon (not links)", cp.locator(".other .cat-card.is-soon").count()==3 and cp.locator(".other .cat-card.is-soon a").count()==0 and cp.eval_on_selector_all(".other a","e=>e.map(a=>a.getAttribute('href'))")==["/categories/love/"])
+    check("category: related = live ones are links, planned ones are Coming Soon (not links)", cp.locator(".other .cat-card.is-soon").count()==2 and cp.locator(".other .cat-card.is-soon a").count()==0 and set(cp.eval_on_selector_all(".other a","e=>e.map(a=>a.getAttribute('href'))"))=={"/categories/love/","/categories/friendship/"})
     check("category: canonical/og:url", cp.get_attribute("link[rel=canonical]","href")=="https://SITE_URL_PLACEHOLDER/categories/birthday/" and cp.get_attribute("meta[property='og:url']","content")=="https://SITE_URL_PLACEHOLDER/categories/birthday/")
     ld=json.loads(cp.inner_text("script[type='application/ld+json']") if False else cp.eval_on_selector("script[type='application/ld+json']","e=>e.textContent"))
     types=[n["@type"] for n in ld["@graph"]]; check("category JSON-LD: WebSite, CollectionPage, BreadcrumbList", types==["WebSite","CollectionPage","BreadcrumbList"], types)
@@ -128,7 +128,7 @@ with sync_playwright() as p:
     check("404: status 404, branded, CTA to /#explore resolves to the Explore section", r.status==404 and np.get_attribute(".error-actions .btn-primary","href")=="/#explore")
     # ---- no-JS
     nj=b.new_context(viewport={'width':390,'height':800},java_script_enabled=False); n=nj.new_page(); n.goto(B+"/"); n.wait_for_timeout(300)
-    check("no-JS: bengali default, all wish/category content present & visible", n.locator("[data-wish]").count()==3 and n.locator("[data-wish]").first.is_visible() and n.locator(".cat-card").count()==17)
+    check("no-JS: bengali default, all wish/category content present & visible", n.locator("[data-wish]").count()==4 and n.locator("[data-wish]").first.is_visible() and n.locator(".cat-card").count()==17)
     check("no-JS: JS-only controls hidden (search, chips, lang buttons), CTAs still work", n.locator("#searchForm").is_hidden() and n.locator("#chips").is_hidden() and n.locator(".footer-lang-btn").first.is_hidden() and n.locator(".hero-actions .btn-primary").is_visible())
     check("no-JS: card link followable", n.get_attribute("a.wish-link","href")=="/wishes/birthday/birthday-01")
     n.goto(B+"/categories/birthday/"); check("no-JS: category page complete", n.locator(".wish-card").count()==1 and n.locator("h1").is_visible())

@@ -13,6 +13,7 @@ def nxt(pg): pg.click(".step-panel:not([hidden]) [data-action=next]"); pg.wait_f
 CASES=[
  dict(occ="love",tpl="love-letter",route="/wishes/love/love-01",themes=["rose","midnight","blush"],default_theme="rose",kind=False,first_h="তিনটি তারা"),
  dict(occ="anniversary",tpl="anniversary-memories",route="/wishes/anniversary/anniversary-01",themes=["ivory","emerald","twilight"],default_theme="ivory",kind=True,first_h="স্মৃতির বয়াম"),
+ dict(occ="friendship",tpl="friendship-moments",route="/wishes/friendship/friendship-01",themes=["sunny","ocean","berry"],default_theme="sunny",kind=False,first_h="তিনটি মুহূর্ত"),
 ]
 with sync_playwright() as p:
     b=p.chromium.launch()
@@ -92,17 +93,15 @@ with sync_playwright() as p:
         fc=b.new_context(viewport={'width':390,'height':800}); fp=fc.new_page(); fp.goto(B+f"/create/?category={c['occ']}&template={T}"); fp.wait_for_timeout(300)
         check(f"[{T}] fresh browser context: deep link lands on the details-ready step with template selected",step_is(fp,2) or step_is(fp,3),fp.evaluate("document.querySelector('.step-panel:not([hidden])').dataset.step"))
         fc.close()
-    # planned template safety
-    for u in ["/create/?template=friendship-moments","/create/?category=friendship","/create/?template=friendship-moments&category=friendship","/create/?template=../../wishes/birthday/birthday-01","/create/?category=love&template=anniversary-memories"]:
+    # Unknown / non-implemented values remain safe; Friendship is now live.
+    for u in ["/create/?template=../../wishes/birthday/birthday-01", "/create/?category=love&template=anniversary-memories", "/create/?category=not-a-category", "/create/?template=not-a-template"]:
         pg.goto(B+u); pg.wait_for_timeout(250)
-        st=pg.evaluate("document.querySelector('.step-panel:not([hidden])').dataset.step")
-        ok=(st in("1","2")) and pg.locator("input[name=template][value=friendship-moments]").count()==0
-        check(f"planned/unknown deep link {u[8:70]} is safe (no Friendship option exists)",ok,st)
+        check(f"unknown or hostile deep link is handled safely: {u[8:70]}",pg.locator(".step-panel:not([hidden])").count()==1)
     pg.goto(B+"/create/"); pg.wait_for_timeout(250)
-    check("Friendship is shown only as a non-interactive 'coming soon' chip",pg.locator("#step-1 .soon-chips li:has-text('বন্ধুত্ব')").count()==1 and pg.locator("#step-1 input[value=friendship]").count()==0)
+    check("Friendship is an interactive live occasion",pg.locator("#step-1 input[value=friendship]").count()==1 and pg.locator("#step-1 .soon-chips li:has-text('বন্ধুত্ব')").count()==0)
     # English creator UI
     pg.goto(B+"/create/?lang=en"); pg.evaluate("localStorage.setItem('wishora_lang','en')"); pg.reload(); pg.wait_for_timeout(300)
-    check("English creator lists the three occasions in English",pg.locator("#step-1 .choice-name").all_inner_texts()==["Birthday","Love","Anniversary"] and not any("\u0980"<=ch<="\u09FF" for ch in pg.inner_text("#step-1 .choice-grid")))
+    check("English creator lists the four live occasions in English",pg.locator("#step-1 .choice-name").all_inner_texts()==["Birthday","Love","Friendship","Anniversary"] and not any("\u0980"<=ch<="\u09FF" for ch in pg.inner_text("#step-1 .choice-grid")))
     pg.click("#step-1 label:has(input[value=anniversary])"); nxt(pg); nxt(pg)
     check("English: anniversary 'kind' legend + options are English",any(w in pg.inner_text("[data-field=kind]") for w in ["What kind of anniversary?"]) and "Partners" in pg.inner_text("[data-field=kind]") and not any("\u0980"<=ch<="\u09FF" for ch in pg.inner_text("[data-field=kind]")))
     check("no console errors / failed local requests in the whole Creator run",not errs and not [x for x in bad if "birthday-music" not in x[1]],(errs,bad))

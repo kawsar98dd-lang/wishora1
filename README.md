@@ -3,17 +3,26 @@
 A premium, bilingual (বাংলা / English) digital-wishes site. Plain HTML, CSS and
 JavaScript. **No framework, and nothing to build or install to deploy it.**
 
-Status: **Phase 3 (Signature wish experiences).** Three experiences are live — **Birthday Surprise**,
-**A Love Letter** and **The Memory Jar** (anniversary) — and each can be personalised at `/create/` and shared as a
-single link. **Friendship is planned only** (data model prepared, no page, never offered or linked). Everything else
-on the roadmap is marked "coming soon". There is **no backend**: the link carries the wish.
+Status: **Phase 5 (category content and SEO polish).** Four experiences are live — **Birthday Surprise**, **A Love Letter**, **The Memory Jar** (anniversary) and **The Friendship Postcard** — and each can be personalised at `/create/` and shared as a single link. Category pages now include bilingual, practical FAQs with matching structured data. There is **no backend**: the link carries the wish.
 
 | Experience | Route | Interaction | Themes | Extra field |
 |---|---|---|---|---|
 | Birthday Surprise | `/wishes/birthday/birthday-01` | 8-scene surprise (Phase 0–2) | classic, elegant, celebration | — |
 | A Love Letter | `/wishes/love/love-01` | break the wax seal → light 3 stars → read the letter → send a heartbeat | rose, midnight, blush | — |
 | The Memory Jar | `/wishes/anniversary/anniversary-01` | open the jar → draw 3 memory cards → read the wish → raise a glass | ivory, emerald, twilight | `kind` = `together` (default, neutral) / `couple` / `family` |
-| Friendship Moments | — | **planned, not built** | — | — |
+| The Friendship Postcard | `/wishes/friendship/friendship-01` | reveal 3 moments → read note → high-five | sunny, ocean, berry | — |
+
+## Validation commands
+
+Run these from the repository root (Node.js required):
+
+```sh
+node scripts/build.mjs --check
+node scripts/check-repo.mjs
+node scripts/test-phase5.mjs
+```
+
+The Phase 5 content test checks the four live category pages for visible bilingual FAQ content, valid FAQ JSON-LD, keyboard focus styling, and mobile styling. These checks do not replace real-device or production deployment testing.
 
 ## Architecture
 
@@ -60,6 +69,7 @@ data/*.js + config/site.js  ──►  node scripts/build.mjs  ──►  commit
 ├── css/wish-base.css          SHARED structure for Love/Anniversary pages (look comes from each page's own CSS)
 ├── wishes/birthday/           the Birthday experience (hand-built; only its JSON-LD block is generated)
 ├── wishes/love/               "A Love Letter"   (love-01.html/.css/.js — own design and interaction)
+├── wishes/friendship/   `The Friendship Postcard` (Phase 4)
 ├── wishes/anniversary/        "The Memory Jar"  (anniversary-01.html/.css/.js — own design and interaction)
 ├── tests/browser/             Playwright suites + readme.txt (see "Tests")
 ├── assets/{images,icons,audio}
@@ -233,7 +243,7 @@ there are no saved drafts, no account history, no short links and no permanent c
 4. Static `<title>`/description of the page must match `seo.title.en` / start with `seo.description.en`.
 5. `node scripts/build.mjs && node scripts/check-repo.mjs` — occasion/template cards, form, category page, JSON-LD and
    sitemap are generated; the checker verifies routes, limits, languages, themes, planned-template rules and URL safety.
-6. Add the template to the case lists in `tests/browser/p3_wishes.py` and `p3_creator.py`.
+6. Add the template to `tests/browser/p4_friendship.py` (or create an equivalent dedicated suite), and update Creator coverage in `p3_creator.py`.
 
 Choice fields (`options: "choices"`) are validated against the template's own list; anything else falls back to the
 default and never reaches the URL. Future fields (photo, music, custom colours) are meant to be new `fields` entries.
@@ -249,7 +259,8 @@ node scripts/build.mjs --check     # generated files up to date?
 node scripts/check-repo.mjs        # integrity, honesty, templates, URL-safety self-tests
 node scripts/serve.mjs 8803        # keep running in one terminal, then in another:
 python3 tests/browser/p3_wishes.py   # Love + Anniversary experiences (long: ~6 min)
-python3 tests/browser/p3_creator.py  # Creator with the new templates
+python3 tests/browser/p3_creator.py  # Creator with all live templates
+python3 tests/browser/p4_friendship.py # Friendship experience, safety and responsive checks
 python3 tests/browser/<p1_main|p1_func|p1_a11y|t_bday|t_misc|p2_creator|p2_more>.py
 ```
 Run suites one at a time. See `tests/browser/readme.txt` for what each covers and the remaining environment limits
@@ -281,8 +292,8 @@ length is capped at 40 code points, and values are written with `textContent` on
 data they render.
 
 ## Known limitations
-- **The Creator supports three templates** (Birthday, Love, Anniversary), each with three themes. Customisable: names, message, theme, language, and (Anniversary only) the anniversary kind. **Friendship is planned only.**
-- **Bengali copy for the new experiences is machine-drafted and not native-reviewed** (marked "BENGALI COPY" in `wishes/love/love-01.js` and `wishes/anniversary/anniversary-01.js`).
+- **The Creator supports four templates** (Birthday, Love, Anniversary and Friendship). Customisable: names, message, theme and language; Anniversary also has a relationship-tone choice.
+- **Bengali copy for the newer experiences is machine-drafted and not native-reviewed** (see comments in the Love, Anniversary and Friendship scripts).
 - **Category pages for Love and Anniversary each list one wish** (generated automatically from live wishes); they will grow as wishes are added.
 - **No years/dates field** in the Anniversary experience yet; a milestone counter would be a new `fields` entry.
 - **No drafts or history**: reloading `/create/` starts over; the finished link is the only artifact.
@@ -291,7 +302,7 @@ data they render.
 - **Birthday music file is missing** (`assets/audio/birthday-music.mp3`, see `assets/audio/README.md`); the player degrades gracefully.
   Music autostart never fires because of `preload="none"`; users press play.
 - **Site URL is a placeholder** until you run the script above.
-- Only three wishes exist, so "Featured" shows Birthday and the other two are listed under "More"; related wishes are just those three.
+- Four wishes exist, so "Featured" shows Birthday and the other three are listed under "More"; related wishes are curated links among those four.
 - **Privacy and Terms are plain-language drafts reflecting what the site does today. They have not had legal review.**
 - Fonts load from Google Fonts (non-blocking). Self-hosting is a later option.
 - Each page contains both languages (larger HTML, ~8 KB gzipped for the homepage); hidden-language text is `display:none`.

@@ -88,6 +88,29 @@
       related: ["anniversary-01", "birthday-01"]
     },
     {
+      id: "friendship-01",
+      slug: "friendship-01",
+      status: "live",
+      category: "friendship",
+      template: "friendship-moments",
+      path: "wishes/friendship/friendship-01.html",
+      route: "/wishes/friendship/friendship-01",
+      title: { bn: "বন্ধুত্বের পোস্টকার্ড", en: "The Friendship Postcard" },
+      description: {
+        bn: "তিনটি বন্ধুত্বের মুহূর্ত খুলে দেখুন, তারপর বন্ধুর জন্য রাখা বার্তাটি পড়ুন।",
+        en: "Reveal three little friendship moments, then read a note made for your friend."
+      },
+      languages: ["bn", "en"],
+      tags: {
+        bn: ["বন্ধু", "বন্ধুত্ব", "প্রিয় বন্ধু", "বন্ধুর জন্য শুভেচ্ছা"],
+        en: ["friendship", "best friend", "friend", "bestie", "thank you friend"]
+      },
+      thumbnail: { icon: "🤝", theme: "friendship" },
+      featured: false,
+      order: 4,
+      related: ["birthday-01", "love-01", "anniversary-01"]
+    },
+    {
       id: "anniversary-01",
       slug: "anniversary-01",
       status: "live",

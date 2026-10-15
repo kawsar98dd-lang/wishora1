@@ -55,6 +55,11 @@
         bn: "জন্মদিনের শুভেচ্ছা: খুলে দেখুন, নাম যোগ করুন, একটি লিংকে শেয়ার করুন।",
         en: "Birthday wishes you can open, personalise with a name and share with one link."
       },
+      faq: [
+        { q: { bn: "কীভাবে জন্মদিনের শুভেচ্ছা পাঠাব?", en: "How do I send a birthday wish?" }, a: { bn: "শুভেচ্ছাটি খুলুন অথবা ‘শুভেচ্ছা তৈরি করুন’ থেকে জন্মদিন বেছে নিন। প্রাপকের নাম ও চাইলে নিজের বার্তা যোগ করে লিংকটি কপি করে পাঠান।", en: "Open the birthday wish or choose Birthday in Create a Wish. Add the recipient’s name and an optional message, then copy and send the link." } },
+        { q: { bn: "নিজের লেখা বার্তা যোগ করা যাবে?", en: "Can I add my own message?" }, a: { bn: "হ্যাঁ। Creator-এ নিজের বার্তা লিখলে সেটি শেয়ার করা লিংকে থাকবে এবং প্রাপক সেটি পড়তে পারবেন। সংবেদনশীল তথ্য লিখবেন না।", en: "Yes. A message you enter in the Creator is included in the shareable link so the recipient can read it. Avoid sensitive information." } },
+        { q: { bn: "শুভেচ্ছা তৈরি করতে অ্যাকাউন্ট লাগবে?", en: "Do I need an account?" }, a: { bn: "না। Wishora-তে অ্যাকাউন্ট বা সাইন-আপ ছাড়াই শুভেচ্ছা সাজিয়ে শেয়ার করা যায়।", en: "No. You can personalise and share a Wishora greeting without an account or sign-up." } }
+      ],
       related: ["congratulations", "friendship", "love", "special"]
     },
     {
@@ -76,11 +81,39 @@
         bn: "ভালোবাসার শুভেচ্ছা: মোমের সিল ভাঙুন, চিঠি পড়ুন, নাম যোগ করে একটি লিংকে শেয়ার করুন।",
         en: "Love wishes: break the seal, read the letter, add a name and share it with one link."
       },
+      faq: [
+        { q: { bn: "ভালোবাসার চিঠিতে নিজের কথা লিখতে পারি?", en: "Can I write my own words in the love letter?" }, a: { bn: "হ্যাঁ। Creator-এ নিজের বার্তা যোগ করতে পারেন। আপনার লেখা অনুবাদ করা হয় না; লিংকে যেভাবে থাকবে, প্রাপক সেভাবেই পড়বেন।", en: "Yes. Add your own message in the Creator. It is not translated; the recipient sees the message as included in the link." } },
+        { q: { bn: "শুভেচ্ছাটি কি শুধু প্রেমিক বা প্রেমিকার জন্য?", en: "Is the wish only for a romantic partner?" }, a: { bn: "এই অভিজ্ঞতার ভাষা রোমান্টিক। অন্য সম্পর্কের জন্য চাইলে বন্ধুত্ব বা জন্মদিনের শুভেচ্ছা বেছে নিতে পারেন।", en: "This experience uses romantic language. For another kind of relationship, you may prefer a friendship or birthday wish." } },
+        { q: { bn: "শেয়ার করার জন্য অ্যাকাউন্ট দরকার?", en: "Do I need an account to share it?" }, a: { bn: "না। নাম ও বার্তা যোগ করে লিংক কপি বা সমর্থিত ব্রাউজারে সরাসরি শেয়ার করতে পারবেন।", en: "No. Add a name and message, then copy the link or use native sharing in a supported browser." } }
+      ],
       related: ["anniversary", "birthday", "friendship"]
     },
-    { id: "friendship", icon: "🤝", label: { bn: "বন্ধুত্ব", en: "Friendship" },
+    {
+      id: "friendship", icon: "🤝", label: { bn: "বন্ধুত্ব", en: "Friendship" },
+      pageTitle: { bn: "বন্ধুত্বের শুভেচ্ছা", en: "Friendship Wishes" },
       description: { bn: "বন্ধুর জন্য মজার আর আন্তরিক শুভেচ্ছা।", en: "Warm, friendly wishes for your friends." },
-      keywords: { bn: ["বন্ধু"], en: ["friend", "friends", "bestie"] } },
+      keywords: { bn: ["বন্ধু", "বন্ধুত্ব", "প্রিয় বন্ধু"], en: ["friend", "friends", "bestie", "friendship"] },
+      intro: {
+        bn: [
+          "বন্ধুত্ব অনেক সময় ছোট ছোট ব্যাপারে ধরা পড়ে—খোঁজ নেওয়া, মন দিয়ে শোনা, আর একসঙ্গে হাসতে পারা। এই শুভেচ্ছাটি সেই মুহূর্তগুলো মনে করিয়ে দেওয়ার জন্য।",
+          "বন্ধুর নাম আর নিজের বার্তা যোগ করে পোস্টকার্ডটি সাজিয়ে একটি লিংকে শেয়ার করুন।"
+        ],
+        en: [
+          "Friendship often lives in small things: checking in, listening closely and being able to laugh together. This wish is a little reminder of those moments.",
+          "Add your friend's name and your own message, then share the postcard as a single link."
+        ]
+      },
+      meta: {
+        bn: "বন্ধুর জন্য ইন্টারঅ্যাকটিভ শুভেচ্ছা: নাম ও নিজের বার্তা যোগ করে একটি লিংকে শেয়ার করুন।",
+        en: "An interactive friendship wish: add a name and your own message, then share it with one link."
+      },
+      faq: [
+        { q: { bn: "বন্ধুর নাম ও নিজের নাম যোগ করা যাবে?", en: "Can I add my friend’s name and my own name?" }, a: { bn: "হ্যাঁ। Creator-এ প্রাপকের নাম বাধ্যতামূলক, আর নিজের নাম ঐচ্ছিক।", en: "Yes. The recipient’s name is required in the Creator, while your own name is optional." } },
+        { q: { bn: "বন্ধুত্বের শুভেচ্ছায় নিজের বার্তা যোগ করা যায়?", en: "Can I add a personal message to the friendship wish?" }, a: { bn: "হ্যাঁ। নিজের বার্তা লিখে পোস্টকার্ডে যোগ করুন। বার্তাটি লিংকের অংশ হবে, তাই ব্যক্তিগত বা গোপন তথ্য লিখবেন না।", en: "Yes. Add your message to the postcard. It becomes part of the link, so do not include private or sensitive details." } },
+        { q: { bn: "শুভেচ্ছাটি ফোনে কাজ করবে?", en: "Will the wish work on a phone?" }, a: { bn: "পেজটি ছোট স্ক্রিনের জন্য তৈরি করা হয়েছে। তবে পুরোনো ব্রাউজার বা বিশেষ ডিভাইসে অভিজ্ঞতা ভিন্ন হতে পারে।", en: "The page is designed for small screens, though the experience can vary on older browsers or unusual devices." } }
+      ],
+      related: ["birthday", "love", "anniversary"]
+    },
     {
       id: "anniversary", icon: "💍", label: { bn: "বার্ষিকী", en: "Anniversary" },
       pageTitle: { bn: "বার্ষিকীর শুভেচ্ছা", en: "Anniversary Wishes" },
@@ -100,6 +133,11 @@
         bn: "বার্ষিকীর শুভেচ্ছা: স্মৃতির বয়াম থেকে কার্ড তুলুন, নাম যোগ করে একটি লিংকে শেয়ার করুন।",
         en: "Anniversary wishes: draw memory cards from a jar, add a name and share with one link."
       },
+      faq: [
+        { q: { bn: "এই বার্ষিকীর শুভেচ্ছা কি শুধু দম্পতিদের জন্য?", en: "Is this anniversary wish only for couples?" }, a: { bn: "না। Creator-এ নিরপেক্ষ, দম্পতি বা পরিবারের উপযোগী সুর বেছে নেওয়া যায়।", en: "No. In the Creator, you can choose a neutral tone, a couple-focused tone, or a family-focused tone." } },
+        { q: { bn: "তারিখ বা কত বছর পূর্ণ হলো, তা যোগ করা যায়?", en: "Can I add a date or number of years?" }, a: { bn: "বর্তমান টেমপ্লেটে আলাদা তারিখ বা বছরের ঘর নেই। চাইলে নিজের বার্তার মধ্যে সেই তথ্য লিখতে পারেন।", en: "The current template has no separate date or years field. You can include that information in your own message." } },
+        { q: { bn: "আমার ব্যক্তিগত বার্তা কি Wishora-তে সংরক্ষিত হয়?", en: "Does Wishora store my personal message?" }, a: { bn: "বার্তা আপনার ব্রাউজারেই লিংকের অংশ হিসেবে তৈরি হয়; Wishora নিজে এটি ডেটাবেসে সংরক্ষণ করে না। তবে লিংক যার কাছে থাকবে, সে বার্তাটি দেখতে পারে।", en: "The message is assembled in your browser as part of the link; Wishora does not store it in a database. Anyone with the link may be able to read it." } }
+      ],
       related: ["love", "birthday", "friendship"]
     },
     { id: "congratulations", icon: "🎉", label: { bn: "অভিনন্দন", en: "Congratulations" },

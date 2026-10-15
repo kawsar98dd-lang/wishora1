@@ -31,7 +31,7 @@ with sync_playwright() as p:
     r=pg.goto(B+"/create/"); pg.wait_for_timeout(300)
     check("1 creator opens (200), title + h1 + canonical + indexable", r.status==200 and "Create a Personalized Wish" in pg.title() and pg.locator("h1").count()==1 and pg.get_attribute("link[rel=canonical]","href")=="https://SITE_URL_PLACEHOLDER/create/" and pg.locator("meta[name=robots]").count()==0, pg.title())
     check("steps: 5 items, step 1 current (aria-current=step), caption shown", pg.locator("[data-step-item]").count()==5 and pg.get_attribute("[data-step-item='1']","aria-current")=="step" and "ধাপ 1/5" in pg.inner_text("#stepLive"))
-    check("Phase 3: step 1 lists exactly the occasions that have a working template (Birthday, Love, Anniversary) + 14 coming-soon chips, non-interactive; planned Friendship is only a chip", pg.locator("#step-1 input[name=occasion]").count()==3 and pg.locator("#step-1 .soon-chips li").count()==14 and "বন্ধুত্ব" in pg.inner_text("#step-1 .soon-chips") and pg.locator("#step-1 .soon-chips a, #step-1 .soon-chips button, #step-1 .soon-chips input").count()==0)
+    check("Phase 4: step 1 lists four working occasions and 13 coming-soon chips; Friendship is live", pg.locator("#step-1 input[name=occasion]").count()==4 and pg.locator("#step-1 .soon-chips li").count()==13 and pg.locator("#step-1 input[value=friendship]").count()==1 and pg.locator("#step-1 .soon-chips a, #step-1 .soon-chips button, #step-1 .soon-chips input").count()==0)
     check("Next disabled until an occasion is chosen", pg.is_disabled("#step-1 [data-action=next]"))
     # ---- 2/3 select birthday + template
     pg.click("#step-1 label.choice-card"); check("2 select Birthday → Next enabled", pg.is_enabled("#step-1 [data-action=next]"))

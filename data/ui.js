@@ -119,6 +119,8 @@
     /* --- category pages --- */
     crumbHome:       { bn: "হোম", en: "Home" },
     catWishesTitle:  { bn: "এই ক্যাটাগরির শুভেচ্ছা", en: "Wishes in this category" },
+    catFaqTitle:     { bn: "সাধারণ প্রশ্ন", en: "Frequently asked questions" },
+    catFaqIntro:     { bn: "শুভেচ্ছা বেছে নেওয়া, ব্যক্তিগত বার্তা যোগ করা এবং নিরাপদে শেয়ার করার কিছু উত্তর।", en: "A few practical answers about choosing a wish, adding a message and sharing it thoughtfully." },
     catHowTitle:     { bn: "নিজের মতো করে পাঠান", en: "Make it personal" },
     catHowText:      { bn: "লিংকের শেষে প্রাপকের নাম আর আপনার নাম জুড়ে দিন, যেমন:", en: "Add the recipient's name and your own name to the end of the link, like this:" },
     catHowExample:   { bn: "উদাহরণটি দেখুন", en: "See this example" },

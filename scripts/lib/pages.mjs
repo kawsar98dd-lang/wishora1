@@ -271,6 +271,20 @@ ${wishes.map((w) => wishCard(m, w, 3)).join("\n")}
       </ul>
     </div>
   </section>
+${Array.isArray(cat.faq) && cat.faq.length ? `
+  <section class="category-faq" aria-labelledby="category-faq-title">
+    <div class="container category-faq-inner">
+      <h2 class="block-title" id="category-faq-title">${t("catFaqTitle")}</h2>
+      <p class="category-faq-intro">${t("catFaqIntro")}</p>
+      <div class="faq-list">
+${cat.faq.map((item, index) => `        <details class="faq-item"${index === 0 ? " open" : ""}>
+          <summary>${bi(item.q)}</summary>
+          <div class="faq-answer">${m.langs.map((l) => `<p data-l="${l}" lang="${l}">${esc(item.a[l])}</p>`).join("")}</div>
+        </details>`).join("\n")}
+      </div>
+    </div>
+  </section>
+` : ""}
 ${canPersonalise ? `
   <section class="howto" aria-labelledby="howto-title">
     <div class="container">
@@ -320,7 +334,18 @@ ${related.map((c) => categoryCard(m, c)).join("\n")}
         inLanguage: m.langs,
         breadcrumb: { "@id": `${site}${path}#breadcrumb` }
       },
-      { ...breadcrumbLd(m, crumbs), "@id": `${site}${path}#breadcrumb` }
+      { ...breadcrumbLd(m, crumbs), "@id": `${site}${path}#breadcrumb` },
+      ...(Array.isArray(cat.faq) && cat.faq.length ? [{
+        "@type": "FAQPage",
+        "@id": `${site}${path}#faq`,
+        url: `${site}${path}#category-faq-title`,
+        name: `${cat.pageTitle.en} — Frequently asked questions`,
+        mainEntity: cat.faq.map((item) => ({
+          "@type": "Question",
+          name: item.q.en,
+          acceptedAnswer: { "@type": "Answer", text: item.a.en }
+        }))
+      }] : [])
     ]
   };
 

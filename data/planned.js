@@ -31,19 +31,6 @@
       thumbClass: "thumb-birthday"
     },
     {
-      id: "friendship-01",
-      status: "planned",
-      homeHighlight: true,
-      category: "friendship",
-      title: { bn: "প্রিয় বন্ধুর জন্য", en: "Best Friend Wishes" },
-      description: {
-        bn: "যে বন্ধু সবসময় পাশে থাকে, তার জন্য এক সুন্দর শুভেচ্ছা।",
-        en: "A heartfelt wish for the friend who's always there."
-      },
-      icon: "🤝",
-      thumbClass: "thumb-friendship"
-    },
-    {
       id: "congratulations-01",
       status: "planned",
       homeHighlight: true,
